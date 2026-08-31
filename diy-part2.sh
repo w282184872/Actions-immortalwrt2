@@ -6,14 +6,15 @@
 #
 
 # 1. 修改默认后台 IP
-# 注意：这里必须使用双引号 (")，以确保 $ROUTER_IP 能被正确读取和替换
 sed -i "s/192.168.1.1/$ROUTER_IP/g" package/base-files/files/bin/config_generate
 
 # 2. 修改默认主机名
-# 兼容处理：将源码默认的 OpenWrt 或 ImmortalWrt 替换为 $ROUTER_NAME
 sed -i "s/hostname='OpenWrt'/hostname='$ROUTER_NAME'/g" package/base-files/files/bin/config_generate
 sed -i "s/hostname='ImmortalWrt'/hostname='$ROUTER_NAME'/g" package/base-files/files/bin/config_generate
 
 # 3. 修改默认主题 (可选)
-# 将默认的 bootstrap 主题替换为更美观的 argon 主题
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
+# 4. 强制升级 Golang 版本到 1.26+ (修复 xray-core 编译报错)
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
