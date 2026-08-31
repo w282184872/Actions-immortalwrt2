@@ -1,14 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: 70cc7aa9153719fc662c314ffe010142_e94f74e9a58111f1a0d9525400826444
-    ReservedCode1: xBj9xhlg3gsGBQUKm66iIW/bcHPDdohZPq5Xh3LcmRYvVpfXegmWjOztWE7JjF8/8TjJC6TfI8pDwyP3l+xw9MGEOVxvkOMA+6OpVTG0+e/MG9fNAMP6W8VrI99JFoXPYcZ/DTYNiogBjonx8KfRa5ySNb9yYulXdVTeLDxTXmcWU8KU9Cd3hgmYID8=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: 70cc7aa9153719fc662c314ffe010142_e94f74e9a58111f1a0d9525400826444
-    ReservedCode2: xBj9xhlg3gsGBQUKm66iIW/bcHPDdohZPq5Xh3LcmRYvVpfXegmWjOztWE7JjF8/8TjJC6TfI8pDwyP3l+xw9MGEOVxvkOMA+6OpVTG0+e/MG9fNAMP6W8VrI99JFoXPYcZ/DTYNiogBjonx8KfRa5ySNb9yYulXdVTeLDxTXmcWU8KU9Cd3hgmYID8=
----
-
 # Actions-immortalwrt 使用说明
 
 基于 GitHub Actions 的在线云编译方案，一键自动编译 ImmortalWrt 固件，无需本地 Linux 编译环境。
@@ -133,4 +122,3 @@ Actions-immortalwrt/
 ## 9. 许可证
 
 本项目基于 [MIT](https://github.com/w282184872/Actions-immortalwrt/blob/main/LICENSE) 许可证开源，核心模板版权归 [P3TERX](https://p3terx.com) 所有。
-*（内容由AI生成，仅供参考）*
