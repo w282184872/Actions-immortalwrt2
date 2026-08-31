@@ -1,16 +1,11 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 #
-# File: .github/workflows/openwrt-builder.yml
+# File: .github/workflows/build-ax3000t.yml
 # Description: Build OpenWrt using GitHub Actions
 #
-# Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
 
-name: 编译 ax3000t OpenWrt 固件
+name: 编译 AX3000T OpenWrt 固件
 
 on:
   repository_dispatch:
@@ -27,6 +22,9 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  # AX3000T 专属变量，会被 diy-part2.sh 读取
+  ROUTER_IP: 192.168.3.1
+  ROUTER_NAME: Xiaomi-AX3000T
 
 jobs:
   build:
@@ -131,7 +129,7 @@ jobs:
       run: |
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "由 GitHub Actions 自动编译生成" >> release.txt
+        echo "由 GitHub Actions 自动编译生成 (Xiaomi-AX3000T)" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件到 Releases
