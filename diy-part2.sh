@@ -15,6 +15,10 @@ sed -i "s/hostname='ImmortalWrt'/hostname='$ROUTER_NAME'/g" package/base-files/f
 # 3. 修改默认主题 (可选)
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
-# 4. 强制升级 Golang 版本到 1.26 (精准指定分支以修复 xray-core 编译报错)
+# 4. 强制升级 Golang 版本到 1.26 (修复 xray-core 编译报错及目录结构层级问题)
 rm -rf feeds/packages/lang/golang
 git clone -b 1.26 --depth 1 https://github.com/kenzok8/golang feeds/packages/lang/golang
+
+# 将嵌套的子目录文件全部提起到当前根目录，与 .mk 文件同级
+cp -af feeds/packages/lang/golang/golang/* feeds/packages/lang/golang/
+rm -rf feeds/packages/lang/golang/golang
