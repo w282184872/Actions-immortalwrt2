@@ -107,7 +107,7 @@ Actions-immortalwrt/
 
 `update-checker.yml` 用于检测上游源码更新并自动触发重新编译：
 
-- 当前监控源为 `coolsnowwolf/lede`（master 分支），沿用模板默认值；**注意**：本仓库实际编译使用 `hanwckf/immortalwrt-mt798x`，如需自动跟踪该源码，请修改 `REPO_URL` 为 `https://github.com/hanwckf/immortalwrt-mt798x`、`REPO_BRANCH` 为 `openwrt-21.02`。
+- 当前监控源为 `hanwckf/immortalwrt-mt798x`（openwrt-21.02 分支），与编译使用的源码仓库一致。
 - 定时调度（`schedule`）默认注释，当前仅在 Actions 页面手动运行，或可取消注释恢复每 18 小时自动检查。
 - 检测到上游提交变化后，通过 `repository_dispatch` 事件触发「编译 AX3000T / ASR3000」工作流。
 

@@ -9,6 +9,7 @@ name: 编译 AX3000T OpenWrt 固件
 
 on:
   repository_dispatch:
+    types: [Source Code Update]
   workflow_dispatch:
 
 env:

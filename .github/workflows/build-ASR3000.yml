@@ -9,6 +9,7 @@ name: 编译 ASR3000 OpenWrt 固件
 
 on:
   repository_dispatch:
+    types: [Source Code Update]
   workflow_dispatch:
 
 env:
