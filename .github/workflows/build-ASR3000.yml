@@ -22,6 +22,9 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
+  # ASR3000 专属变量，会被 diy-part2.sh 读取
+  ROUTER_IP: 192.168.6.1
+  ROUTER_NAME: ASR3000
 
 jobs:
   build:
