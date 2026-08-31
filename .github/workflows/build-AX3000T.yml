@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: 编译 OpenWrt 固件
+name: 编译 ax3000t OpenWrt 固件
 
 on:
   repository_dispatch:
