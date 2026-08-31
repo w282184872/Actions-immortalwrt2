@@ -33,7 +33,7 @@ jobs:
 
     steps:
     - name: 检出仓库代码
-      uses: actions/checkout@main
+      uses: actions/checkout@v7.0.1
 
     - name: 初始化编译环境
       env:
@@ -102,7 +102,7 @@ jobs:
       run: df -hT
 
     - name: 上传 bin 目录 (可选)
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v7.0.1
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -118,7 +118,7 @@ jobs:
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件目录 (Artifacts)
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v7.0.1
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -134,7 +134,7 @@ jobs:
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: 上传固件到 Releases
-      uses: softprops/action-gh-release@master
+      uses: softprops/action-gh-release@v3.0.3
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -144,13 +144,13 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: 清理旧的工作流运行记录
-      uses: Mattraks/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@v2.1.0
       with:
         retain_days: 0
         keep_minimum_runs: 2
 
     - name: 删除旧的 Releases
-      uses: dev-drprasad/delete-older-releases@master
+      uses: dev-drprasad/delete-older-releases@v0.3.4
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 3
